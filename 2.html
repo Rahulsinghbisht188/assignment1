@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Laundry Wallah</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* Reset & Scrollbar Removal */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden; /* Removes both scrollbars */
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f7fafd;
+      padding: 15px 40px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .navbar .nav-links a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .navbar .username {
+      background-color: #e0f0ff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      color: #007BFF;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 40px;
+      height: calc(100vh - 70px); /* navbar height deducted */
+    }
+
+    .hero-text {
+      max-width: 50%;
+    }
+
+    .hero-text h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+      color: #222;
+    }
+
+    .hero-text h1 span {
+      color: #007BFF;
+    }
+
+    .hero-text p {
+      font-size: 17px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .hero-text button {
+      background-color: #007BFF;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .hero-image {
+      max-width: 45%;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        padding: 30px 20px;
+        height: auto;
+      }
+
+      .hero-text, .hero-image {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .navbar .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">Logo</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">About Us</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <div class="username">Username</div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Revitalize Your Clothes with Expert <span>Laundry Services!</span></h1>
+      <p>From premium dry cleaning to swift wash and fold, we deliver care and convenience. Schedule a pickup and rediscover the freshness of your clothes today!</p>
+      <button>Book a service today!</button>
+    </div>
+    <div class="hero-image">
+      <img src="https://www.peopleslaundry.com/assets/image/home/Best%20drycleaners%20in%20Coimbatore.webp" alt="Laundry Machine" />
+    </div>
+  </div>
+
+</body>
+</html>
