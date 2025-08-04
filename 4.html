@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laundry Wallah - Clean & Fast Laundry Service</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background: #f4f4f4;
+    }
+    header, footer {
+      background: #004080;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      background: url('https://st3.depositphotos.com/1428083/12638/i/450/depositphotos_126384552-stock-illustration-girl-in-the-laudry.jpg') ;
+      color: rgb(14, 13, 13);
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .quality-list li {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    form input, form button {
+      padding: 10px;
+      margin: 10px 0;
+      width: 100%;
+      max-width: 400px;
+    }
+    .footer-links, .social-icons {
+      margin-top: 20px;
+    }
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 20px;
+    }
+    #confirmationMessage {
+      color: green;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Laundry Wallah</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#quality">Why Us</a>
+    <a href="#booking">Book Now</a>
+    <a href="#newsletter">Subscribe</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <b><h1>Clean Clothes, Happy You!</h1></b><br><br>
+  <strong><h2>Fast, Affordable & Reliable Laundry Service</h2></strong>
+</section>
+
+<section id="booking" class="section">
+  <h2>Book Your Laundry Pickup</h2>
+  <form id="bookingForm">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <button type="submit">Book Now</button>
+    <p id="confirmationMessage"></p>
+  </form>
+</section>
+
+<section id="quality" class="section">
+  <h2>Why Choose Laundry Wallah?</h2>
+  <ul class="quality-list">
+    <li><strong>Premium Services:</strong> We care for your clothes like our own.</li>
+    <li><strong>Quick Support:</strong> 24/7 customer assistance.</li>
+    <li><strong>Timely Delivery:</strong> Always on schedule.</li>
+    <li><strong>Affordable Prices:</strong> High quality at low prices.</li>
+  </ul>
+</section>
+
+<section id="newsletter" class="section">
+  <h2>Subscribe to Our Newsletter</h2>
+  <form id="newsletterForm">
+    <input type="text" placeholder="Full Name" required />
+    <input type="email" placeholder="Email Address" required />
+    <button type="submit">Subscribe</button>
+  </form>
+</section>
+
+<footer id="contact">
+  <div class="logo">Laundry Wallah</div>
+  <div class="footer-links">
+    <a href="#about" style="color:white">About Us</a> |
+    <a href="#faq" style="color:white">FAQs</a> |
+    <a href="#terms" style="color:white">Terms</a> |
+    <a href="#contact" style="color:white">Contact</a>
+  </div>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+<script>
+  emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+
+  document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this) // Replace values
+      .then(() => {
+        document.getElementById('confirmationMessage').innerText = 'Thank you for booking the service! We will get back to you soon!';
+        this.reset();
+      }, (error) => {
+        alert('Failed to send. Try again later.');
+        console.error(error);
+      });
+  });
+</script>
+
+</body>
+</html>
