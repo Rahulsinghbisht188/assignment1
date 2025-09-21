@@ -1,234 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Laundry Wallah - Clean & Fast Laundry Service</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-    body {
-      background: #f4f4f4;
-    }
-    header, footer {
-      background: #004080;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      position: relative;
-    }
-    /* Navbar */
-    nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-    .nav-links {
-      display: flex;
-      list-style: none;
-    }
-    .nav-links li {
-      margin: 0 15px;
-    }
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    /* Hamburger menu */
-    .menu-toggle {
-      display: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: white;
-      position: absolute;
-      right: 20px;
-    }
-    /* Responsive Navbar */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background: #004080;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        padding: 20px;
-      }
-      .nav-links.active {
-        display: flex;
-      }
-      .menu-toggle {
-        display: block;
-      }
-    }
-
-    /* Hero Section */
-    .hero {
-      background: url('https://st3.depositphotos.com/1428083/12638/i/450/depositphotos_126384552-stock-illustration-girl-in-the-laudry.jpg');
-      color: rgb(14, 13, 13);
-      text-align: center;
-      padding: 100px 20px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    .section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .quality-list li {
-      margin-bottom: 15px;
-      font-size: 18px;
-    }
-    form input, form button {
-      padding: 10px;
-      margin: 10px 0;
-      width: 100%;
-      max-width: 400px;
-    }
-    form button {
-      background: #004080;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    form button:hover {
-      background: #0066cc;
-    }
-    .footer-links, .social-icons {
-      margin-top: 20px;
-    }
-    .social-icons a {
-      color: white;
-      margin: 0 10px;
-      font-size: 20px;
-    }
-    #confirmationMessage {
-      color: green;
-      margin-top: 10px;
-    }
-    #newsletterMessage {
-      color: green;
-      margin-top: 10px;
-    }
-    footer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#0b69a3" />
+<title>Laundry Wallah — Clean & Fast Laundry Service</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<style>
+:root{
+  --bg:#f6fbff;
+  --card:#ffffff;
+  --accent:#0b69a3;
+  --accent-2:#023e8a;
+  --muted:#64748b;
+  --success:#16a34a;
+  --glass: rgba(255,255,255,0.6);
+  --maxw:1200px;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;line-height:1.4;color:#0f172a;background:linear-gradient(180deg,var(--bg),#eef6fb);-webkit-font-smoothing:antialiased}
+.container{max-width:var(--maxw);margin:0 auto;padding:24px}
+.header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border-radius:12px;margin-bottom:20px;box-shadow:0 8px 30px rgba(11,105,163,0.18)}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#fff2,#ffffff22);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:20px;box-shadow:0 6px 18px rgba(2,62,138,0.16)}
+.brand h1{font-size:20px;margin:0;letter-spacing:0.2px}
+.tag{font-size:12px;color:rgba(255,255,255,0.95);opacity:0.95}
+.nav{display:flex;gap:12px;align-items:center}
+.nav a{color:rgba(18, 16, 16, 0.701);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+.cta{background:#fff;color:var(--accent-2);padding:8px 14px;border-radius:10px;font-weight:700}
+.hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:28px}
+.card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:0 10px 30px rgba(2,6,23,0.06);border:1px solid rgba(2,6,23,0.04)}
+.hero-left h2{margin:0 0 8px;font-size:28px;color:#071233}
+.lead{color:var(--muted);margin-bottom:18px}
+.features{display:flex;gap:12px;flex-wrap:wrap}
+.feature{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;background:linear-gradient(180deg,#f8fbff,#ffffff);min-width:160px}
+.feature i{font-size:20px;color:var(--accent)}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,#e6f4ff,#dff4ff);font-weight:700;color:var(--accent-2);font-size:13px}
+.form-row{display:flex;gap:10px}
+.input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid #e6eef6;background:#fcfdff;font-size:14px}
+textarea{min-height:110px;resize:vertical}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(11,105,163,0.18)}
+.btn:active{transform:translateY(1px)}
+.small{font-size:13px;color:var(--muted)}
+.right-column{position:relative}
+.booking-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.booking-grid{display:grid;gap:10px}
+.field{display:flex;flex-direction:column;gap:8px}
+.inline{display:flex;gap:8px}
+.note{font-size:13px;color:var(--muted)}
+.thank{display:block;margin-top:12px;color:var(--success);font-weight:700}
+.qualities{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.quality{background:linear-gradient(180deg,#fff,#f7fbff);padding:16px;border-radius:12px;display:flex;flex-direction:column;align-items:flex-start;gap:8px;border:1px solid rgba(2,6,23,0.03)}
+.quality i{font-size:20px;color:var(--accent)}
+.newsletter{display:flex;gap:12px;align-items:center;margin-top:18px}
+.sub-input{padding:12px;border-radius:10px;border:1px solid #e6eef6;font-size:14px;flex:1}
+.footer{margin-top:30px;padding:20px;border-radius:12px;background:linear-gradient(180deg,#001e3c11,#ffffff00);display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+.footer .links{display:flex;gap:12px;align-items:center}
+.social i{font-size:18px;color:var(--accent-2);margin-left:8px;cursor:pointer}
+.copy{color:var(--muted);font-size:13px}
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;order:0}
+  .qualities{grid-template-columns:repeat(2,1fr)}
+  .nav{display:none}
+  .header{padding:14px}
+}
+@media (max-width:560px){
+  .qualities{grid-template-columns:1fr}
+  .brand h1{font-size:18px}
+  .logo{width:48px;height:48px;font-size:18px}
+  .container{padding:16px}
+}
+.toast{position:fixed;right:20px;bottom:22px;background:#0b69a3;color:#fff;padding:12px 16px;border-radius:10px;box-shadow:0 10px 30px rgba(2,6,23,0.12);transform:translateY(20px);opacity:0;pointer-events:none;transition:all .28s cubic-bezier(.2,.9,.3,1)}
+.toast.show{transform:translateY(0);opacity:1;pointer-events:auto}
+.nav-toggle{display:none}
+.menu-btn{display:none}
+@media (max-width:980px){
+  .nav-toggle{display:flex;align-items:center;gap:10px}
+  .menu-btn{display:inline-flex;background:rgba(255,255,255,0.14);padding:8px;border-radius:10px;color:#fff;border:none}
+  .mobile-nav{position:fixed;left:12px;right:12px;top:86px;background:var(--card);padding:12px;border-radius:12px;box-shadow:0 14px 40px rgba(2,6,23,0.12);display:none;flex-direction:column;gap:8px}
+  .mobile-nav a{padding:10px;border-radius:8px;color:#071233;font-weight:700}
+  .mobile-nav.show{display:flex}
+}
+.badge-ghost{background:#ffffffdd;padding:6px 10px;border-radius:10px;font-weight:700;color:#0b69a3}
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.kpi{background:linear-gradient(180deg,#fff,#fbfdff);padding:14px;border-radius:12px;display:flex;flex-direction:column;gap:8px}
+.kpi strong{font-size:20px;color:#071233}
+.hr{height:1px;background:linear-gradient(90deg,#e6eef6,#ffffff);margin:18px 0;border-radius:2px}
+.focus-ring:focus{outline:3px solid rgba(11,105,163,0.18);outline-offset:2px}
+</style>
 </head>
 <body>
-
-<header>
-  <h1>Laundry Wallah</h1>
-  <nav>
-    <div class="menu-toggle" id="menu-toggle">
-      <i class="fas fa-bars"></i>
+<div class="container" role="main">
+  <header class="header" aria-label="Main header">
+    <div class="brand" aria-hidden="false">
+      <div class="logo" aria-hidden="true">LW</div>
+      <div>
+        <h1 id="brandTitle">Laundry Wallah</h1>
+        <div class="tag">Clean • Fast • Trusted</div>
+      </div>
     </div>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#quality">Why Us</a></li>
-      <li><a href="#booking">Book Now</a></li>
-      <li><a href="#newsletter">Subscribe</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+    <nav class="nav" aria-label="Primary Navigation">
+      <a href="#services">Services</a>
+      <a href="#booking">Book</a>
+      <a href="#qualities">Why Us</a>
+      <a href="#newsletter" class="cta">Subscribe</a>
+    </nav>
+    <div class="nav-toggle" aria-hidden="false">
+      <div class="badge-ghost">Express</div>
+      <button aria-expanded="false" id="menuBtn" class="menu-btn" aria-label="Open Menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </header>
 
-<section class="hero">
-  <h1><b>Clean Clothes, Happy You!</b></h1><br><br>
-  <h2><strong>Fast, Affordable & Reliable Laundry Service</strong></h2>
-</section>
+  <div class="hero" aria-labelledby="heroHeading">
+    <div class="hero-left">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+          <div>
+            <h2 id="heroHeading">Premium Laundry. Pickup & Delivery.</h2>
+            <p class="lead">We handle your garments with care. Same-week pickup and delivery, eco-friendly cleaning, and affordable plans tailored for you.</p>
+          </div>
+          <div class="badge">Fastest turnaround</div>
+        </div>
+        <div class="hr"></div>
+        <div class="features" role="list">
+          <div class="feature" role="listitem"><i class="fas fa-star"></i><div><strong>Premium Care</strong><div class="small">Fabric-safe processes</div></div></div>
+          <div class="feature" role="listitem"><i class="fas fa-shipping-fast"></i><div><strong>Free Pickup</strong><div class="small">Scheduled at your convenience</div></div></div>
+          <div class="feature" role="listitem"><i class="fas fa-clock"></i><div><strong>On-time Delivery</strong><div class="small">Trackable routes</div></div></div>
+          <div class="feature" role="listitem"><i class="fas fa-tags"></i><div><strong>Transparent Pricing</strong><div class="small">No surprises</div></div></div>
+        </div>
+        <div class="kpi-grid" aria-hidden="true">
+          <div class="kpi"><span class="small">Orders Completed</span><strong id="ordersCompleted">12,243</strong></div>
+          <div class="kpi"><span class="small">Happy Customers</span><strong id="happyCustomers">8,432</strong></div>
+          <div class="kpi"><span class="small">Average Rating</span><strong id="avgRating">4.8 / 5</strong></div>
+        </div>
+      </div>
+    </div>
 
-<section id="booking" class="section">
-  <h2>Book Your Laundry Pickup</h2>
-  <form id="bookingForm">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <button type="submit">Book Now</button>
-    <p id="confirmationMessage"></p>
-  </form>
-</section>
+    <aside class="right-column card" aria-labelledby="bookingTitle" id="booking">
+      <div class="booking-title">
+        <div>
+          <h3 id="bookingTitle">Book a Pickup</h3>
+          <div class="note">Fill details and we'll confirm via email</div>
+        </div>
+        <div class="small">Slots available today</div>
+      </div>
 
-<section id="quality" class="section">
-  <h2>Why Choose Laundry Wallah?</h2>
-  <ul class="quality-list">
-    <li><strong>Premium Services:</strong> We care for your clothes like our own.</li>
-    <li><strong>Quick Support:</strong> 24/7 customer assistance.</li>
-    <li><strong>Timely Delivery:</strong> Always on schedule.</li>
-    <li><strong>Affordable Prices:</strong> High quality at low prices.</li>
-  </ul>
-</section>
-
-<section id="newsletter" class="section">
-  <h2>Subscribe to Our Newsletter</h2>
-  <form id="newsletterForm">
-    <input type="text" placeholder="Full Name" required />
-    <input type="email" placeholder="Email Address" required />
-    <button type="submit">Subscribe</button>
-    <p id="newsletterMessage"></p>
-  </form>
-</section>
-
-<footer id="contact">
-  <div class="logo">Laundry Wallah</div>
-  <div class="footer-links">
-    <a href="#about" style="color:white">About Us</a> |
-    <a href="#faq" style="color:white">FAQs</a> |
-    <a href="#terms" style="color:white">Terms</a> |
-    <a href="#contact" style="color:white">Contact</a>
+      <form id="bookingForm" class="booking-grid" novalidate>
+        <div class="field">
+          <label for="fullName" class="small">Full name</label>
+          <input id="fullName" class="input focus-ring" type="text" name="fullName" autocomplete="name" required aria-required="true" />
+        </div>
+        <div class="field">
+          <label for="phone" class="small">Phone</label>
+          <input id="phone" class="input focus-ring" type="tel" name="phone" inputmode="tel" required aria-required="true" />
+        </div>
+        <div class="field">
+          <label for="email" class="small">Email</label>
+          <input id="email" class="input focus-ring" type="email" name="email" autocomplete="email" required aria-required="true" />
+        </div>
+        <div class="field">
+          <label for="address" class="small">Pickup address</label>
+          <input id="address" class="input focus-ring" type="text" name="address" required />
+        </div>
+        <div class="field">
+          <label for="serviceType" class="small">Service type</label>
+          <select id="serviceType" class="input focus-ring" required>
+            <option value="wash_fold">Wash & Fold</option>
+            <option value="dry_clean">Dry Clean</option>
+            <option value="iron_only">Ironing</option>
+            <option value="full_service">Full Service</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="pickupDate" class="small">Pickup date</label>
+          <input id="pickupDate" class="input focus-ring" type="date" />
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;margin-top:6px">
+          <button id="bookBtn" class="btn" type="submit" aria-live="polite" aria-atomic="true"><i class="fas fa-calendar-check"></i> Book Now</button>
+          <div id="thankMsg" class="thank" role="status" aria-hidden="true" style="display:none">Thank you For Booking the Service We will get back to you soon!</div>
+        </div>
+        <div class="small note" style="grid-column:1 / -1">You will receive a confirmation email shortly. We may call you to confirm pickup details.</div>
+      </form>
+    </aside>
   </div>
-  <div class="social-icons">
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-  </div>
-</footer>
 
-<!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <section id="qualities" class="card" aria-labelledby="qualitiesHeading" style="margin-bottom:18px">
+    <h3 id="qualitiesHeading">Our Promises</h3>
+    <p class="small">We focus on quality, speed, transparency and care. Everything to make laundry effortless for you.</p>
+    <div class="qualities" role="list">
+      <div class="quality" role="listitem"><i class="fas fa-award"></i><div><strong>Premium services</strong><div class="small">Specialty cleaning for all fabrics</div></div></div>
+      <div class="quality" role="listitem"><i class="fas fa-headset"></i><div><strong>Quick support</strong><div class="small">Chat and phone support during business hours</div></div></div>
+      <div class="quality" role="listitem"><i class="fas fa-truck"></i><div><strong>Timely delivery</strong><div class="small">Predictable pickup & delivery windows</div></div></div>
+      <div class="quality" role="listitem"><i class="fas fa-wallet"></i><div><strong>Affordable prices</strong><div class="small">Clear, fair pricing with plans</div></div></div>
+    </div>
+  </section>
+
+  <section class="card" id="newsletter" aria-labelledby="newsletterHeading">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+      <div>
+        <h3 id="newsletterHeading">Stay in the loop</h3>
+        <div class="small">Get exclusive offers, tips and updates. Unsubscribe anytime.</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <input id="subName" class="sub-input focus-ring" type="text" placeholder="Full name" aria-label="Full name" />
+        <input id="subEmail" class="sub-input focus-ring" type="email" placeholder="Email address" aria-label="Email address" />
+        <button id="subscribeBtn" class="btn">Subscribe</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo" aria-label="Footer">
+    <div style="display:flex;gap:12px;align-items:center">
+      <div class="logo" style="background:linear-gradient(135deg,rgba(28, 27, 27, 0.6),#ffffff22);width:48px;height:48px">LW</div>
+      <div>
+        <div style="font-weight:800">Laundry Wallah</div>
+        <div class="small">Pickup & Delivery • Eco-friendly</div>
+      </div>
+    </div>
+    <div class="links">
+      <a href="#">About Us</a>
+      <a href="#">FAQs</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end">
+      <div style="display:flex;align-items:center">
+        <div class="social" aria-hidden="true">
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+      <div class="copy">&copy; 2025 Laundry Wallah. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<div id="mobileNav" class="mobile-nav" role="navigation" aria-hidden="true">
+  <a href="#services">Services</a>
+  <a href="#booking">Book</a>
+  <a href="#qualities">Why Us</a>
+  <a href="#newsletter">Subscribe</a>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-  emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
-
-  document.getElementById('bookingForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this) // Replace values
-      .then(() => {
-        document.getElementById('confirmationMessage').innerText = 'Thank you for booking the service! We will get back to you soon!';
-        this.reset();
-      }, (error) => {
-        alert('Failed to send. Try again later.');
-        console.error(error);
-      });
-  });
-
-  // Newsletter confirmation
-  document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    document.getElementById('newsletterMessage').innerText = 'Thanks for subscribing!';
-    this.reset();
-  });
-
-  // Hamburger menu toggle
-  const menuToggle = document.getElementById("menu-toggle");
-  const navLinks = document.getElementById("nav-links");
-
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
+emailjs.init("REPLACE_WITH_YOUR_EMAILJS_PUBLIC_KEY")
+const menuBtn=document.getElementById("menuBtn")
+const mobileNav=document.getElementById("mobileNav")
+menuBtn.addEventListener("click",()=>{const expanded=menuBtn.getAttribute("aria-expanded")==="true";menuBtn.setAttribute("aria-expanded",String(!expanded));mobileNav.classList.toggle("show");mobileNav.setAttribute("aria-hidden",String(expanded))})
+const bookingForm=document.getElementById("bookingForm")
+const thankMsg=document.getElementById("thankMsg")
+const toast=document.getElementById("toast")
+const subName=document.getElementById("subName")
+const subEmail=document.getElementById("subEmail")
+const subscribeBtn=document.getElementById("subscribeBtn")
+function showToast(text,timeout=3000){toast.textContent=text;toast.classList.add("show");setTimeout(()=>{toast.classList.remove("show")},timeout)}
+function validateEmail(email){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)}
+bookingForm.addEventListener("submit",async function(e){
+  e.preventDefault()
+  const name=document.getElementById("fullName").value.trim()
+  const phone=document.getElementById("phone").value.trim()
+  const email=document.getElementById("email").value.trim()
+  const address=document.getElementById("address").value.trim()
+  const service=document.getElementById("serviceType").value
+  const pickup=document.getElementById("pickupDate").value
+  if(!name||!phone||!email||!address){showToast("Please fill all required fields");return}
+  if(!validateEmail(email)){showToast("Please enter a valid email");return}
+  const templateParams={
+    from_name:name,
+    from_phone:phone,
+    from_email:email,
+    from_address:address,
+    service_type:service,
+    pickup_date:pickup||"ASAP"
+  }
+  try{
+    await emailjs.send("REPLACE_WITH_YOUR_SERVICE_ID","REPLACE_WITH_YOUR_TEMPLATE_ID",templateParams)
+    thankMsg.style.display="block"
+    thankMsg.setAttribute("aria-hidden","false")
+    bookingForm.reset()
+    showToast("Booking confirmed — check your email")
+    incrementMetrics()
+  }catch(err){
+    showToast("Email failed to send. We'll still save your request.")
+    saveLocalBooking(templateParams)
+    thankMsg.style.display="block"
+    thankMsg.setAttribute("aria-hidden","false")
+  }
+})
+function saveLocalBooking(payload){
+  const queue=JSON.parse(localStorage.getItem("lw:bookings")||"[]")
+  queue.push({payload,ts:new Date().toISOString()})
+  localStorage.setItem("lw:bookings",JSON.stringify(queue))
+}
+subscribeBtn.addEventListener("click",function(){
+  const name=subName.value.trim()
+  const email=subEmail.value.trim()
+  if(!name||!email){showToast("Enter name and email");return}
+  if(!validateEmail(email)){showToast("Enter a valid email");return}
+  const subscribers=JSON.parse(localStorage.getItem("lw:subs")||"[]")
+  const exists=subscribers.find(s=>s.email.toLowerCase()===email.toLowerCase())
+  if(exists){showToast("You're already subscribed");return}
+  subscribers.push({name,email,ts:new Date().toISOString()})
+  localStorage.setItem("lw:subs",JSON.stringify(subscribers))
+  showToast("Thanks for subscribing")
+  subName.value="";subEmail.value=""
+}
+)
+function incrementMetrics(){
+  const orders=document.getElementById("ordersCompleted")
+  const customers=document.getElementById("happyCustomers")
+  const o=Number(orders.textContent.replace(/,/g,""))+1
+  const c=Number(customers.textContent.replace(/,/g,""))+1
+  orders.textContent=o.toLocaleString()
+  customers.textContent=c.toLocaleString()
+}
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){if(mobileNav.classList.contains("show")){mobileNav.classList.remove("show");menuBtn.setAttribute("aria-expanded","false")}}})
+(function progressiveEnhancements(){
+  const today=new Date().toISOString().split("T")[0]
+  const pickupDate=document.getElementById("pickupDate")
+  pickupDate.setAttribute("min",today)
+  const savedSubs=JSON.parse(localStorage.getItem("lw:subs")||"[]")
+  if(savedSubs.length>0){console.info("subscribers:",savedSubs.length)}
+})()
 </script>
-
 </body>
 </html>
